@@ -45,15 +45,12 @@ break;
 }
 default:
 {
-write(1, format, sizeof(char));
-count++;
 break;
 }
 }
 }
 else
 {
-// Write the character as is
 write(1, format, sizeof(char));
 count++;
 }
