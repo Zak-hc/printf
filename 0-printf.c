@@ -1,17 +1,12 @@
 #include "main.h"
-/**
- *
- *
- *
-*/
+#include <unistd.h>
+#include <stdarg.h>
+#include "main.h"
 /**
  * _printf - Printf function
  * @format: format.
  * Return: Printed chars.
  */
-#include <unistd.h>
-#include <stdarg.h>
-#include "main.h"
 int _printf(const char *format, ...)
 {
 va_list args;
