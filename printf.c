@@ -22,14 +22,11 @@ format++;
 switch (*format)
 {
 case 'c':
-{
 c = va_arg(args, int);
 write(1, &c, sizeof(char));
 count++;
 break;
-}
 case 's':
-{
 s = va_arg(args, char *);
 while (*s != '\0')
 {
@@ -40,19 +37,15 @@ count++;
 break;
 }
 case '%':
-{
 percent = '%';
 write(1, &percent, sizeof(char));
 count++;
 break;
-}
 default:
-{
 percent = '%';
 write(1, &percent, sizeof(char));
 write(1, format, sizeof(char));
 break;
-}
 }
 }
 else
