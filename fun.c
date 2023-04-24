@@ -18,17 +18,15 @@ return (1);
  *@str : La chaîne de caractères à imprimer
  *Return: 0 le nombre de caractères imprir
  */
-int print_str(char *str)
+int print_str(const char *str)
 {
 int i;
-char *nul = "(null)";
-for (i = 0; nul[i] != '\0'; i++)
-{}
 if (!str)
 {
-write(1, nul, i);
 return (-1);}
 for (i = 0; str[i] != '\0'; i++)
+{
 print_char(str[i]);
+}
 return (i);
 }
