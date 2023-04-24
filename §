@@ -12,8 +12,6 @@ _printf("Character:[%c]\n", 'H');
 _printf("Character:[%c]\n", 'H');
 _printf("String:[%s]\n", "I am a string !");
 _printf("String:[%s]\n", "I am a string !");
-_printf("Unknown:[%r]\n");
-_printf("Percent:[%%]\n");
 _printf("Let's try to printf a simple sentence.\n");
 _printf("Let's try to printf a simple sentence.\n");
 return (0);
