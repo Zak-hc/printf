@@ -1,67 +1,40 @@
-#include "main.h"
+/**
+ * _printf - Printf a function
+ * @format: our first arg
+ * Return: return its slf
+ */
 #include <unistd.h>
 #include <stdarg.h>
 #include "main.h"
-/**
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars.
- */
 int _printf(const char *format, ...)
 {
 va_list args;
 char percent;
-char *s;
-int c;
 int count = 0;
 va_start(args, format);
-while (*format != '\0')
+for (; *format != '\0'; format++)
 {
 if (*format == '%')
-{
-format++;
+{format++;
 switch (*format)
-{
-case 'c':
-{
-c = va_arg(args, int);
-write(1, &c, sizeof(char));
-count++;
+{case 'c':
+count += print_char(va_arg(args, int));
 break;
-}
 case 's':
-{
-s = va_arg(args, char *);
-while (*s != '\0')
-{
-write(1, s, sizeof(char));
-s++;
-count++;
-}
+count += print_str(va_arg(args, char *));
 break;
-}
 case '%':
-{
 percent = '%';
-write(1, &percent, sizeof(char));
-count++;
+count += print_char(percent);
 break;
-}
 default:
-{
 percent = '%';
 write(1, &percent, sizeof(char));
 write(1, format, sizeof(char));
 break;
-}
-}
-}
+}}
 else
-{
-write(1, format, sizeof(char));
-count++;
-}
-format++;
+count += print_char(*format);
 }
 va_end(args);
 return (count);
