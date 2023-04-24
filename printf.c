@@ -48,6 +48,7 @@ break;
 }
 default:
 {
+percent = '%';
 write(1, &percent, sizeof(char));
 write(1, format, sizeof(char));
 break;
