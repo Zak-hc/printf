@@ -21,8 +21,13 @@ return (1);
 int print_str(char *str)
 {
 int i;
+char *nul = "(null)";
+for (i = 0; nul[i] != '\0'; i++)
+{}
 if (!str)
-return (-1);
+{
+write(1, nul, i);
+return (-1);}
 for (i = 0; str[i] != '\0'; i++)
 print_char(str[i]);
 return (i);
