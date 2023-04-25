@@ -1,2 +1,2 @@
-# printf
-depart
+#bin/bash
+printing from scratch
