@@ -7,7 +7,7 @@
  * _printf - Printf a function
  * @format: our first arg
  * Return: return its slf
- */
+ *
 int _printf(const char *format, ...)
 {
 va_list args;
