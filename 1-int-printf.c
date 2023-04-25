@@ -7,8 +7,9 @@
  * _printf - Printf a function
  * @format: our first arg
  * Return: return its slf
- *
-int _printf(const char *format, ...)
+ */
+int _pprintf(const char *format, ...)
+case 's':
 {
 va_list args;
 char percent;
