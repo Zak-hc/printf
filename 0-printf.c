@@ -12,7 +12,7 @@ va_list args;
 char percent;
 char *to;
 int count = 0;
-if (format == NULL || (format[0] == && (format + 1) == 0))
+if (format == NULL || (format[0] == '%' && format + 1 == 0))
 return (-1);
 if ( format[0] == '%' && format[1] == ' ' && (format + 2) == NULL)
 va_start(args, format);
