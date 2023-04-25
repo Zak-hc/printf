@@ -22,7 +22,7 @@ return (1);
 int print_str(const char *str)
 {
 int i;
-if (!str)
+if (str == NULL)
 {
 str = "(null)";
 }
