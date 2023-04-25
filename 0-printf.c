@@ -2,7 +2,6 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
-#include <string.h>
 #include "main.h"
 /**
  * _printf - Printf a function
@@ -14,8 +13,7 @@ int _printf(const char *format, ...)
 va_list args;
 char percent;
 char *to;
-int i;
-int count = 0;
+int i, count = 0;
 if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 return (-1);
 if (format[0] == '%' && format[1] == ' ' && format[2] == '\0')
@@ -34,9 +32,10 @@ to = va_arg(args, char *);
 if (to == NULL)
 count += print_str("(null)");
 else
-{count += print_str(to);
-break;
+{
+count += print_str(to);
 }
+break;
 case '%':
 count += print_char('%');
 break;
