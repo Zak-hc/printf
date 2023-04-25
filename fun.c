@@ -23,7 +23,8 @@ int print_str(const char *str)
 int i;
 if (!str)
 {
-return (-1);}
+return (-1);
+}
 for (i = 0; str[i] != '\0'; i++)
 {
 print_char(str[i]);
