@@ -8,4 +8,5 @@ int _printf(const char *format, ...);
 int print_str(const char *str);
 int print_char(char c);
 int _pprintf(const char *format, ...);
+int ifif(const char *format);
 #endif

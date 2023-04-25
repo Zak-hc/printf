@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <unistd.h>
 #include "main.h"
 /**
  * _printf - Printf a function
@@ -11,14 +7,9 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-char percent;
-char *to;
-char too[100];
+char too[100], *to;
 int i, count = 0;
-if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-return (-1);
-if (format[0] == '%' && format[1] == ' ' && format[2] == '\0')
-return (-1);
+ifif(format);
 va_start(args, format);
 for (i = 0; format[i] != '\0'; i++)
 {
@@ -44,10 +35,8 @@ case '%':
 count += print_char('%');
 break;
 default:
-percent = '%';
-write(1, &percent, sizeof(char));
-write(1, &format[i], sizeof(char));
-count += 2;
+count += print_char('%');
+count += print_char(format[i]);
 break;
 }}
 else
