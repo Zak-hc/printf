@@ -15,6 +15,7 @@ int count = 0;
 if (format == NULL || (format[0] == '%' && format + 1 == 0))
 return (-1);
 if ( format[0] == '%' && format[1] == ' ' && (format + 2) == NULL)
+return (-1);
 va_start(args, format);
 for (; *format != '\0'; format++)
 {
