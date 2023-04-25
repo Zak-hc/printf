@@ -10,7 +10,11 @@ int _printf(const char *format, ...)
 {
 va_list args;
 char percent;
+char *to;
 int count = 0;
+if (format == NULL || (format[0] == && (format + 1) == 0))
+return (-1);
+if ( format[0] == '%' && format[1] == ' ' && (format + 2) == NULL)
 va_start(args, format);
 for (; *format != '\0'; format++)
 {
@@ -21,7 +25,11 @@ switch (*format)
 count += print_char(va_arg(args, int));
 break;
 case 's':
-count += print_str(va_arg(args, char *));
+to = va_arg(args, char *);
+if (to == NULL)
+count += print_str("(null)");
+else
+count += print_str(to);
 break;
 case '%':
 percent = '%';
