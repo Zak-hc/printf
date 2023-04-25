@@ -32,9 +32,7 @@ to = va_arg(args, char *);
 if (to == NULL)
 count += print_str("(null)");
 else
-{
 count += print_str(to);
-}
 break;
 case '%':
 count += print_char('%');
@@ -43,6 +41,7 @@ default:
 percent = '%';
 write(1, &percent, sizeof(char));
 write(1, &format[i], sizeof(char));
+count += 2;
 break;
 }}
 else
