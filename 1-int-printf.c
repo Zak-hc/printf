@@ -8,7 +8,7 @@
  * @format: our first arg
  * Return: return its slf
  */
-int _pprintf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 va_list args;
 char percent;
