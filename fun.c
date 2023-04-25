@@ -1,5 +1,8 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <unistd.h>
 /**
  *print_char- Fonction pour imprimer un caractère
  *@c : Le caractère à imprimer
@@ -7,8 +10,6 @@
  */
 int print_char(char c)
 {
-if (!c)
-return (-1);
 write(1, &c, sizeof(char));
 return (1);
 }
@@ -23,7 +24,7 @@ int print_str(const char *str)
 int i;
 if (!str)
 {
-return (-1);
+str = "(null)";
 }
 for (i = 0; str[i] != '\0'; i++)
 {
