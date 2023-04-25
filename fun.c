@@ -26,6 +26,7 @@ if (!str)
 {
 str = "(null)";
 }
+else
 for (i = 0; str[i] != '\0'; i++)
 {
 print_char(str[i]);
