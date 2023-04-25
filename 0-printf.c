@@ -11,17 +11,18 @@ int _printf(const char *format, ...)
 va_list args;
 char percent;
 char *to;
+int i;
 int count = 0;
 if (format == NULL || (format[0] == '%' && format + 1 == 0))
 return (-1);
 if ( format[0] == '%' && format[1] == ' ' && (format + 2) == NULL)
 return (-1);
 va_start(args, format);
-for (; *format != '\0'; format++)
+for (i = 0; format[i] != '\0'; i++)
 {
-if (*format == '%')
-{format++;
-switch (*format)
+if (format[i] == '%')
+{i++;
+switch (format[i])
 {case 'c':
 count += print_char(va_arg(args, int));
 break;
@@ -33,17 +34,16 @@ else
 count += print_str(to);
 break;
 case '%':
-percent = '%';
-count += print_char(percent);
+count += print_char('%');
 break;
 default:
 percent = '%';
 write(1, &percent, sizeof(char));
-write(1, format, sizeof(char));
+write(1, &format[i], sizeof(char));
 break;
 }}
 else
-count += print_char(*format);
+count += print_char(format[i]);
 }
 va_end(args);
 return (count);
