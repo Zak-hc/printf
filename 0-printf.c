@@ -34,8 +34,9 @@ to = va_arg(args, char *);
 if (to == NULL)
 count += print_str("(null)");
 else
-count += print_str(to);
+{count += print_str(to);
 break;
+}
 case '%':
 count += print_char('%');
 break;
