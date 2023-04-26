@@ -9,7 +9,8 @@ int _printf(const char *format, ...)
 va_list args;
 char too[100], *to;
 int i, count = 0;
-if (format == NULL || format[0] == '\0' || (format[0] == '%' && format[1] == ' ' && format[2] == '\0'))
+if (format == NULL || format[0] == '\0' ||
+(format[0] == '%' && format[1] == ' ' && format[2] == '\0'))
 return (-1);
 va_start(args, format);
 for (i = 0; format[i] != '\0'; i++)
@@ -17,8 +18,7 @@ for (i = 0; format[i] != '\0'; i++)
 if (format[i] == '%')
 {i++;
 switch (format[i])
-{case 'd':
-case 'i':
+{case 'd': case 'i':
 sprintf(too, "%d", va_arg(args, int));
 count += print_str(too);
 break;
