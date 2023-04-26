@@ -19,7 +19,12 @@ for (i = 0; format[i] != '\0'; i++)
 if (format[i] == '%')
 {i++;
 switch (format[i])
-{case 'c':
+{case 'd':
+case 'i':
+sprintf(too, "%d", va_arg(args, int));
+count += print_str(too);
+break;
+case 'c':
 count += print_char(va_arg(args, int));
 break;
 case 's':
