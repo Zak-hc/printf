@@ -7,8 +7,8 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-int count = 0;
-int i;
+char *to;
+int i, count = 0;
 if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 return (-1);
 if (format[0] == '%' && format[1] == ' ' && format[2] == '\0')
@@ -17,10 +17,26 @@ va_start(args, format);
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
-{
-i++;
-switchh(format[i], args);
-}
+{i++;
+switch (format[i])
+{case 'c':
+count += print_char(va_arg(args, int));
+break;
+case 's':
+to = va_arg(args, char *);
+if (to == NULL)
+count += print_str("(null)");
+else
+count += print_str(to);
+break;
+case '%':
+count += print_char('%');
+break;
+default:
+count += print_char('%');
+count += print_char(format[i]);
+break;
+}}
 else
 count += print_char(format[i]);
 }
