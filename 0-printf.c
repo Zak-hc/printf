@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-char too[100];
+char too[100], *to;
 int i, count = 0;
 if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 return (-1);
@@ -28,10 +28,11 @@ case 'c':
 count += print_char(va_arg(args, int));
 break;
 case 's':
-if (va_arg(args, char *) == NULL)
+to = va_arg(args, char *);
+if (to == NULL)
 count += print_str("(null)");
 else
-count += print_str(va_arg(args, char *));
+count += print_str(to);
 break;
 case '%':
 count += print_char('%');
