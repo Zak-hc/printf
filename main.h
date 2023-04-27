@@ -7,5 +7,6 @@
 int _printf(const char *format, ...);
 int print_str(const char *str);
 int print_char(char c);
-void switchh(char f, va_list args);
+int b(va_list args);
+int _print(const char *format, va_list args);
 #endif
