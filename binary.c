@@ -7,7 +7,6 @@ int i, count = 0;
 unsigned int sum;
 unsigned int div = number;
 char *affich = NULL;
-number = 4;
 sum = 0;
 for (i = 0; i < 32 ; i++)
 {
