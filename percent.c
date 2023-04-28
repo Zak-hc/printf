@@ -5,8 +5,10 @@
  * @args: variable arguments list
  * Return: the number of characters printed, or -1 if an error occurred
  */
-int _print(const char format, va_list args)
+int _print(const char *format, va_list args)
 {
+int i, count = 0;
+char too[100], *to;
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
