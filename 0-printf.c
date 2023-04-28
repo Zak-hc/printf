@@ -1,4 +1,9 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <unistd.h>
+#include  <stdlib.h>
 /**
  * _printf - Printf a function
  * @format: our first arg
