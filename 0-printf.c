@@ -46,4 +46,3 @@ count += print_char(format[i]);
 va_end(args);
 return (count);
 }
-
