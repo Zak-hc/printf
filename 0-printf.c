@@ -7,7 +7,6 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-int count;
 int i, count = 0;
 char too[100], *to;
 if (format == NULL  || (format[0] == '%' && format[1] == '\0')  ||
